@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestApiCrudDemo.EmployeeData;
+using RestApiCrudDemo.Models;
 
 namespace RestApiCrudDemo.Controllers
 {
