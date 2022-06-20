@@ -1,27 +1,17 @@
 ﻿using RestApiCrudDemo.Models;
-using System.Collections.Generic; 
+
 namespace RestApiCrudDemo.EmployeeData
-using RestApiCrudDemo.Models;
-
-    private List<Employee> employees = new List<Employee>()
+{
+    public interface IEmployeeData
     {
-        new Employee()
-        {
-            id = Guid.NewGuid(),
-            Name = "Rhomzy"
-        },
-        new Employee()
-        {
-            id = Guid.NewGuid(),
-            Name = "Employee Number 2"
-        },
+        List<Employee> GetEmployee();
 
-    };
-    public Employee AddEmployee(Employee employee) => throw new NotImplementedException();
+        Employee GetEmployee(Guid Id);
 
-    public Employee EditEmployee(Employee employee) => throw new NotImplementedException();
+        Employee AddEmployee(Employee employee);
 
-    public Employee GetEmployee(Employee employee) => throw new NotImplementedException();
+        Employee EditEmployee(Employee employee);
 
-
+        void DeleteEmployee(Employee employee);
     }
+}
