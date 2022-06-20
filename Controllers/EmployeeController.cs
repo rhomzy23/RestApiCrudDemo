@@ -33,7 +33,7 @@ namespace RestApiCrudDemo.Controllers
                 return Ok(_employeeData.GetEmployee(id));
             }
 
-            return NotFound("Employee with {id} that you search is not found");
+            return NotFound($"Employee with {id} that you search is not found");
         }
 
     }

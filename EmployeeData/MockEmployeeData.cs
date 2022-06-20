@@ -35,7 +35,7 @@ namespace RestApiCrudDemo.EmployeeData
 
         public Employee GetEmployee(Guid Id)
         {
-            throw new NotImplementedException();
+            return employees.SingleOrDefault(x => x.Id == Id);
         }
 
         public List<Employee> GetEmployee()
