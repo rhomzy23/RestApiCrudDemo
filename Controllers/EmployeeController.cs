@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestApiCrudDemo.EmployeeData;
+using RestApiCrudDemo.Models;
 
 namespace RestApiCrudDemo.Controllers
 {
@@ -35,6 +36,21 @@ namespace RestApiCrudDemo.Controllers
 
             return NotFound($"Employee with {id} that you search is not found");
         }
+
+        [HttpPost]
+        [Route("api/[controller]")]
+        public IActionResult AddEmployee(Employee employee)
+        {
+            var employee = _employeeData.GetEmployee(id);
+
+            if (employee != null)
+            {
+                return Ok(_employeeData.GetEmployee(id));
+            }
+
+            return NotFound($"Employee with {id} that you search is not found");
+        }
+
 
     }
 } 
