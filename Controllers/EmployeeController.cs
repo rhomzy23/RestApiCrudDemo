@@ -41,14 +41,9 @@ namespace RestApiCrudDemo.Controllers
         [Route("api/[controller]")]
         public IActionResult AddEmployee(Employee employee)
         {
-            var employee = _employeeData.GetEmployee(id);
+            _employeeData.AddEmployee(employee);
 
-            if (employee != null)
-            {
-                return Ok(_employeeData.GetEmployee(id));
-            }
-
-            return NotFound($"Employee with {id} that you search is not found");
+            return Created(HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path + "/" + employee.Id, employee);
         }
 
 
