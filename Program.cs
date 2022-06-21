@@ -1,6 +1,9 @@
+using Microsoft.EntityFrameworkCore;
 using RestApiCrudDemo.EmployeeData;
+using RestApiCrudDemo.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -9,7 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IEmployeeData, MockEmployeeData>();
+builder.Services.AddScoped<IEmployeeData, SqlEmployeeData>();
+builder.Services.AddDbContextPool<EmployeeContext>(options =>
+options.UseSqlServer("EmployeeContextConnectionString"));
 
 var app = builder.Build();
 
